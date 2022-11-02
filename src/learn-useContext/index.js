@@ -12,9 +12,28 @@ const themes = {
     background: "#222222",
   },
 };
+
+// buat tugas mod 4
+const temas = {
+  sky:{
+    id: 1,
+    foreground: "#ffffff",
+    background: "#0babe6"
+  },
+  forest:{
+    id: 2,
+    foreground: "#000000",
+    background: "#0bcf04"
+  }
+}
+const TemaContext = React.createContext(temas.sky);
+
+//------------------------------------------------
+
 const ThemeContext = React.createContext(themes.light);
 export default function Index() {
   const [theme, setTheme] = useState(themes.dark);
+  
   const changeTheme = () => {
     if (theme.id === themes.light.id) {
       setTheme(themes.dark);
@@ -47,3 +66,6 @@ function ThemedButton() {
     </button>
   );
 }
+
+
+export {TemaContext ,temas};
