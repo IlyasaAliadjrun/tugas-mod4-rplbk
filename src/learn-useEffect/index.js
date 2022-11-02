@@ -3,6 +3,16 @@ import "./index.css";
 export default function Index() {
   const [count, setCount] = useState(0);
   const [data, setData] = useState([]);
+  //buat tugas mod 4
+  const [angka, setAngka] = useState(0)
+  const [calculation, setCalculation] = useState(0)
+  const handleChange = event => {
+    setAngka(event.target.value);
+  };
+  useEffect(() => {
+    setCalculation(() => angka ** 2)
+  },[angka])
+  //-----------------------------------
   //dijalankan 1 kali
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/todos")
@@ -54,6 +64,22 @@ export default function Index() {
           </button>
         </div>
       </div>
+      <br/>
+
+      {/* buat tugas modul 4 */}
+      <p className="Text">Tugas Membuat useEffect Yaitu kuadrat otomatis</p>
+      <p>KELOMPOK20</p>
+      <input 
+        type="number"
+        onChange={handleChange}
+        id="angka"
+        name="angka"
+        value={angka}
+        placeholder="Masukkan angka"
+      />
+      <br/>
+      <h3>{calculation}</h3>
+      {/* ----------------------------- */}
     </div>
   );
 }
