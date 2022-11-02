@@ -8,7 +8,6 @@ export default function Index(){
     function handleClick(){
         setInputan(inputRef.current.value)
     }
-
     return (
         <div className="Main">
           <p className="Text"> Learn useRef</p>
